@@ -1,0 +1,6 @@
+{
+  "name": "MAISON NOIR | International Model Management",
+  "description": "Premier international modeling agency representing elite editorial, runway, and commercial talent across Paris, Milan, New York, and Tokyo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
