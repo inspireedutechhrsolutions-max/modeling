@@ -5,6 +5,7 @@ interface NavbarProps {
   castingCount: number;
   onOpenCastingDeck: () => void;
   onOpenBooking: () => void;
+  onOpenChat: () => void;
   activeSection: string;
   onNavigate: (sectionId: string) => void;
 }
@@ -13,6 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   castingCount,
   onOpenCastingDeck,
   onOpenBooking,
+  onOpenChat,
   activeSection,
   onNavigate
 }) => {
@@ -74,7 +76,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Zone 3: 1-2 primary actions */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2.5 sm:gap-4">
+          <button
+            onClick={onOpenChat}
+            className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 text-xs uppercase tracking-[0.14em] font-medium text-[#d1d1d6] hover:text-[#e2b868] bg-[#141417] hover:bg-[#1f1f26] border border-[#272730] rounded-md transition-colors cursor-pointer"
+            title="Open n8n AI Concierge"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#e2b868]" />
+            <span>AI Concierge</span>
+          </button>
+
           <button
             onClick={onOpenCastingDeck}
             className="flex items-center gap-2 px-3.5 py-2 text-xs uppercase tracking-[0.14em] font-medium text-[#d1d1d6] bg-[#1a1a1e] hover:bg-[#25252b] border border-[#2e2e36] rounded-md transition-colors whitespace-nowrap cursor-pointer"
@@ -135,6 +146,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="text-left text-[#d1d1d6] hover:text-[#e2b868] py-2"
             >
               Offices & Agents
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenChat();
+              }}
+              className="text-left text-[#e2b868] hover:text-white py-2 flex items-center gap-2"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>Launch AI Concierge</span>
             </button>
           </div>
           <div className="pt-2">

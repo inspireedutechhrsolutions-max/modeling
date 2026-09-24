@@ -1,13 +1,14 @@
 import React from 'react';
-import { ArrowDown, ArrowUpRight, Compass, ShieldCheck } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Compass, ShieldCheck, Sparkles } from 'lucide-react';
 import heroImage from '../assets/images/hero_fashion_editorial_1790271486872.jpg';
 
 interface HeroProps {
   onExploreRoster: () => void;
   onOpenScouting: () => void;
+  onOpenChat?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onExploreRoster, onOpenScouting }) => {
+export const Hero: React.FC<HeroProps> = ({ onExploreRoster, onOpenScouting, onOpenChat }) => {
   return (
     <section id="hero" className="relative border-b border-[#232328] overflow-hidden bg-[#0c0c0d]">
       
@@ -50,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreRoster, onOpenScouting }) =
             </div>
 
             {/* Actions */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <button
                 onClick={onExploreRoster}
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-xs uppercase tracking-[0.16em] font-medium text-black bg-[#e2b868] hover:bg-[#ebd08c] rounded-md transition-colors cursor-pointer"
@@ -61,11 +62,21 @@ export const Hero: React.FC<HeroProps> = ({ onExploreRoster, onOpenScouting }) =
 
               <button
                 onClick={onOpenScouting}
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-xs uppercase tracking-[0.16em] font-medium text-[#d1d1d6] bg-[#16161a] hover:bg-[#222228] border border-[#2e2e36] rounded-md transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-3.5 text-xs uppercase tracking-[0.16em] font-medium text-[#d1d1d6] bg-[#16161a] hover:bg-[#222228] border border-[#2e2e36] rounded-md transition-colors cursor-pointer"
               >
                 <span>Digital Scouting</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
+
+              {onOpenChat && (
+                <button
+                  onClick={onOpenChat}
+                  className="inline-flex items-center gap-2 px-5 py-3.5 text-xs uppercase tracking-[0.16em] font-medium text-[#e2b868] hover:text-white bg-[#191612] hover:bg-[#252018] border border-[#423419] rounded-md transition-colors cursor-pointer"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-[#e2b868]" />
+                  <span>AI Concierge</span>
+                </button>
+              )}
             </div>
 
             {/* Strict Quantitative Evidence Adjacency */}

@@ -14,6 +14,7 @@ import { CampaignsSection } from './components/CampaignsSection';
 import { BookingModal } from './components/BookingModal';
 import { OfficesSection } from './components/OfficesSection';
 import { Footer } from './components/Footer';
+import { ChatBot, openMaisonChat } from './components/ChatBot';
 import { MODELS_ROSTER, Model } from './data/modelsData';
 
 export default function App() {
@@ -73,6 +74,7 @@ export default function App() {
         castingCount={castingDeck.length}
         onOpenCastingDeck={() => setIsCastingDrawerOpen(true)}
         onOpenBooking={() => handleOpenBooking()}
+        onOpenChat={openMaisonChat}
         activeSection={activeSection}
         onNavigate={handleNavigate}
       />
@@ -82,6 +84,7 @@ export default function App() {
         <Hero
           onExploreRoster={() => handleNavigate('roster')}
           onOpenScouting={() => handleNavigate('scouting')}
+          onOpenChat={openMaisonChat}
         />
 
         {/* Talent Roster & Main Boards */}
@@ -145,6 +148,9 @@ export default function App() {
         castingDeck={castingDeck}
         allModels={MODELS_ROSTER}
       />
+
+      {/* Luxury n8n AI Concierge Chatbot */}
+      <ChatBot />
 
     </div>
   );
